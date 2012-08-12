@@ -20,15 +20,15 @@
 
 include_recipe "apache2"
 
-remote_file "#{Chef::Config[:file_cache_path]}/railo-3.3.4.003-pl0-linux-installer.run" do
-  source "http://www.getrailo.org/railo/remote/download/3.3.4.003/tomcat/linux/railo-3.3.4.003-pl0-linux-installer.run"
+remote_file "#{Chef::Config[:file_cache_path]}/railo-4.0.0.013-BETA2-linux-installer.run" do
+  source "http://www.getrailo.org/railo/remote/download/4.0.0.013/tomcat/linux/railo-4.0.0.013-BETA2-linux-installer.run"
   mode "0744"
   action :create_if_missing
 end
 
 execute "railo_installer" do
   command_string = <<-FOO
-    /usr/bin/sudo #{Chef::Config[:file_cache_path]}/railo-3.3.4.003-pl0-linux-installer.run \
+    /usr/bin/sudo #{Chef::Config[:file_cache_path]}/railo-4.0.0.013-BETA2-linux-installer.run \
           --mode unattended \
           --prefix /opt/railo/ \
           --tomcatuser railo \
